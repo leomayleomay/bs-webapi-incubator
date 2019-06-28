@@ -29,6 +29,13 @@ module Impl = (T: {type t;}) => {
   [@bs.send.pipe : T.t] external removeUnloadEventListenerWithOptions : ([@bs.as "unload"] _, Dom.event => unit, {. "capture": bool, "passive": bool}) => unit = "removeEventListener"; /* not widely supported */
   [@bs.send.pipe : T.t] external removeUnloadEventListenerUseCapture : ([@bs.as "unload"] _, Dom.event => unit, [@bs.as {json|true|json}] _) => unit = "removeEventListener";
 
+  [@bs.send.pipe : T.t] external addBeforeUnloadEventListener : ([@bs.as "beforeunload"] _, Dom.beforeUnloadEvent => unit) => unit = "addEventListener";
+  [@bs.send.pipe : T.t] external addBeforeUnloadEventListenerWithOptions : ([@bs.as "beforeunload"] _, Dom.beforeUnloadEvent=> unit, {. "capture": bool, "once": bool, "passive": bool}) => unit = "addEventListener"; /* not widely supported */
+  [@bs.send.pipe : T.t] external addBeforeUnloadEventListenerUseCapture : ([@bs.as "beforeunload"] _, Dom.beforeUnloadEvent => unit, [@bs.as {json|true|json}] _) => unit = "addEventListener";
+  [@bs.send.pipe : T.t] external removeBeforeUnloadEventListener : ([@bs.as "beforeunload"] _, Dom.beforeUnloadEvent => unit) => unit = "removeEventListener";
+  [@bs.send.pipe : T.t] external removeBeforeUnloadEventListenerWithOptions : ([@bs.as "beforeunload"] _, Dom.beforeUnloadEvent => unit, {. "capture": bool, "passive": bool}) => unit = "removeEventListener"; /* not widely supported */
+  [@bs.send.pipe : T.t] external removeBeforeUnloadEventListenerUseCapture : ([@bs.as "beforeunload"] _, Dom.beforeUnloadEvent => unit, [@bs.as {json|true|json}] _) => unit = "removeEventListener";
+
   [@bs.send.pipe : T.t] external addAbortEventListener : ([@bs.as "abort"] _, Dom.event => unit) => unit = "addEventListener";
   [@bs.send.pipe : T.t] external addAbortEventListenerWithOptions : ([@bs.as "abort"] _, Dom.event => unit, {. "capture": bool, "once": bool, "passive": bool}) => unit = "addEventListener"; /* not widely supported */
   [@bs.send.pipe : T.t] external addAbortEventListenerUseCapture : ([@bs.as "abort"] _, Dom.event => unit, [@bs.as {json|true|json}] _) => unit = "addEventListener";
